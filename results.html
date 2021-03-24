@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/foundation-sites@6.6.3/dist/css/foundation.min.css" 
+    integrity="sha256-ogmFxjqiTMnZhxCqVmcqTvjfe1Y/ec4WaRj/aQPvn+I=" 
+    crossorigin="anonymous">
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css"
+    integrity="sha512-xodZBNTC5n17Xt2atTPuE1HxjVMSvLVW9ocqUKLsCC5CXdbqCmblAshOMAS6/keqq/sMZMZ19scR4PsZChSR7A=="
+    crossorigin=""/>
+    <script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"
+    integrity="sha512-XQoYMqMTK8LvdxXYG3nZ448hOEQiglfqkJs1NOQV44cWnUrBc8PkAOcXy20w0vlaXaVUearIOBhiXZ5V3ynxwA=="
+    crossorigin=""></script>
+    
+    <link rel="stylesheet" href="./assets/css/scheduler.css" />
+    <title>Save-A-Shot</title>
+  </head>
+
+  <body>
+      <!-- This formats the 'top-bar' nav bar for the 'in-california' user... equipped with a return to homepage button -->
+    <div class='top-bar'>
+        <div class='top-bar-left'>
+            <h5><strong>Save-A-Shot</strong></h5>
+        </div>
+        
+        <div class='top-bar-right'>
+            <button id='glow-on-hover' type='button'><a id='button' href='index.html'><label id='button-text'>Go Back</label></a></button>
+        </div>
+    </div>
+
+    <!-- This formats the results section for our search, also has section available for the map that appears -->
+    <div id='main-section' class='callout large'>
+        <div class='grid-x grid-margin-x'>
+            <div class='cell' id='api-location-results'>
+                <h4 class='text-center'>Here are the closest locations near <span id='cityName'></span> ,<span id='stateName'></span> :</h4>
+                <ul id='list-of-results' class='text-center'></ul>
+                <div id='map' class='callout primary'></div>
+            </div>
+        </div>
+    </div>
+
+    <!-- This formats the 'why take the vaccine' section of the page... also formats the embedded video, partially -->
+    <div id="y-take-it" class='callout'>
+        <div class='grid-y grid-margin-y'>
+            <h4> Why Take the Vaccine?</h4>
+            <p>&emsp;Despite being nearly brand new, the vaccine serves as the crux between a failing society and an increasingly more healthy one. In our case here in the United States, we have failed tremendously at slowing the spread of the Coronavirus. With various political and social issues taking place within the past year (2020), the spread of the Coronavirus was given a free pass to run rampant, placing hardships around every family. Thus, the vaccine serves as our tool to reach the initial healthy environment we remember at the start of 2020.</p>
+            <h5>How safe is it?</h5>
+            <p>&emsp;Despite the vaccine's seemingly rushed production, it has been described by the CDC and the FDA that this vaccine is as safe as any other cold or flu vaccine that you could take currently. Both vaccine responses provided from Pfizer and Moderna has been tested in large clinical assessments, in order for the FDA to even consider approving emergency use. Furthermore, the vaccine is said to have "vastly" greater benefits which outweigh any possible risks that taking the vaccine would result in (Gavi.org). For more information, here are some more links to articles that you may follow, from trusted organizations around the world:  
+                <ul>
+                    <li><a href='https://www.gavi.org/vaccineswork/how-safe-are-covid-19-vaccines?gclid=Cj0KCQjwutaCBhDfARIsAJHWnHvBufiMRTddSClHpJ-UAjN01AgzstrSdjmTIMOjGUYV-DGtED7YPkYaAl9uEALw_wcB'>" How Safe Are COVID-19 Vaccines? " (Gavi, The Vaccination Alliance)</a></li>
+                    <li><a href='https://www.hopkinsmedicine.org/health/conditions-and-diseases/coronavirus/is-the-covid19-vaccine-safe'>" Is the COVID-19 Vaccine Safe? " (Johns Hopkins Medicine)</a></li>
+                    <li><a href='https://www.health.harvard.edu/blog/covid-19-vaccines-safety-side-effects-and-coincidence-2021020821906'>" COVID-19 Vaccines: Safety, side effects -- and coincidence " (Harvard Health Publishing)</a></li>
+                    <li><a href='https://www.mayoclinic.org/diseases-conditions/coronavirus/in-depth/coronavirus-vaccine/art-20484859'>" COVID-19 Vaccines: Get the facts " (MAYO Clinic)</a></li>
+                </ul>
+            </p>
+            <h5>Here's a short informational video from the CDC on COVID-19 Vaccine Safety</h5>
+            <div class='video-container grid-x align-center'>
+                <iframe width="560" height="315" src="https://www.youtube.com/embed/6Wqk2CrMrh8" frameborder="3" allow="accelerometer; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+            </div>
+        </div>
+    </div>
+
+    <!-- this formats the 'other helpful links' section, which provides another embedded video as well as some other informational links -->
+    <div  id='helpful-links' class="callout">
+        <div class='grid-y align-middle'>
+            <h4>Helpful Links</h4>
+            <h5>Here's some more information on how a vaccine functions:</h5>
+            <p><a href="https://covid19.ca.gov/vaccines/#How-vaccines-work">How the vaccines work (COVID19.Ca.Gov)</a></p>
+            <h5>This is another link regarding the safety of the vaccines:</h5>
+            <p><a href="https://www.cdc.gov/coronavirus/2019-ncov/vaccines/safety/safety-of-vaccines.html">Safety of COVID-19 Vaccines (CDC)</a></p>
+            <h5>Short video from Stanford Medicine about COVID-19 Prevention:</h5>
+            <div class='video-container grid-x align-center'>
+                <iframe width="560" height="315" src="https://www.youtube.com/embed/rAj38E7vrS8" frameborder="3" allow="accelerometer; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+            </div>
+        </div>  
+    </div>
+
+    <!-- This formats the 'vaccine available' section, which provides actual live links to 
+        government/health sites to schedule a vaccine appointment -->
+    <div id='vaccine-available'class='callout'>
+        <h4>Where can I get an appointment?</h4>
+        <p>&emsp;The Vaccine Finder Organization has a great all-in-one place to find available vaccinations within your zipcode </p>
+        <button id='glow-on-hover' type='button'><a id='v-finder'  href='https://vaccinefinder.org/search/'>Vaccine Finder</a></button>
+        <h4 style='margin-top: 5px;'> Or</h4>
+        <p>The California Department of Health provides an excellent service,<strong><em> My Turn,</em></strong> which alllows you to schedule a vaccination appointment, if you are eligible</p>
+        <button id='glow-on-hover' type='button'><a id='v-finder'  href='https://myturn.ca.gov/'>CAPDH My Turn</a></button>
+    </div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src='./assets/js/scheduler.js'></script>
+  </body>
